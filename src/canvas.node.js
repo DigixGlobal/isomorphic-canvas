@@ -34,18 +34,19 @@ function createImgFromBase64(url) {
 
 /**
  *
- * @param {String} url - or base64
+ * @param {(String|Buffer)} img - or path, buffer or base64
  * @param {Function} callback
  * @return {Image}
  */
-canvas.getImage = function getImage(url, callback) {
-  var start = url.substr(0, 5);
-  if (start === 'data:') {
+canvas.getImage = function getImage(img, callback) {
+  if (Buffer.isBuffer(img)) {
+    callback(null, createImgFromBuffer(img));
+  } else if (img.substr(0, 5) === 'data:') {
     process.nextTick(function () {
-      callback(null, createImgFromBase64(url));
+      callback(null, createImgFromBase64(img));
     });
   } else {
-    imageProvider.getImage(url, callback);
+    imageProvider.getImage(img, callback);
   }
 };
 
@@ -56,6 +57,7 @@ canvas.setImageProvider = function (imgProvider) {
 function FSImageProvider(rootPath) {
   this.root = rootPath;
 }
+
 canvas.FSImageProvider = FSImageProvider;
 
 FSImageProvider.prototype.getImage = function getImage(url, callback) {
