@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var path = require('path');
+var fileType = require('file-type');
 
 var Canvas = require('canvas');
 var Image = Canvas.Image;
@@ -21,6 +22,7 @@ function canvas(width, height, mode) {
 function createImgFromBuffer(buffer) {
   var img = new Image();
   img.src = buffer;
+  img.mime = fileType(buffer).mime;
   return img;
 }
 
