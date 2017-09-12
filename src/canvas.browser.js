@@ -35,10 +35,10 @@
   canvas.getImage = function getImage(url, callback) {
     var img = new Image();
     img.onload = function () {
-      callback(null, img); 
+      callback(null, img);
     };
     img.onerror = function () {
-      callback(new Error('Cannot load img ' + url)); 
+      callback(new Error('Cannot load img ' + url));
     };
     img.src = url;
     return img;
@@ -46,5 +46,3 @@
 
   return canvas;
 }));
-
-

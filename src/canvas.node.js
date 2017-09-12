@@ -74,4 +74,6 @@ FSImageProvider.prototype.getImage = function getImage(url, callback) {
   });
 };
 
+canvas.Image = Image;
+
 module.exports = canvas;

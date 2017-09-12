@@ -1,11 +1,10 @@
 {
   "name": "@hitchcott/isomorphic-canvas",
-  "version": "0.0.6",
+  "version": "0.0.9",
   "description": "Canvas API wrapper for isomorphic applications.",
   "main": "./src/canvas.node.js",
   "browser": "./src/canvas.browser.js",
-  "repository": "arusakov/isomorphic-canvas",
-  "bugs": "https://github.com/arusakov/isomorphic-canvas/issues",
+  "repository": "hitchcott/isomorphic-canvas",
   "peerDependencies": {
     "canvas": "^1.0.0"
   },
@@ -40,8 +39,5 @@
     "canvas"
   ],
   "author": "Alexander Rusakov <a_s_rusakov@mail.ru>",
-  "license": "MIT",
-  "dependencies": {
-    "file-type": "^6.1.0"
-  }
+  "license": "MIT"
 }
